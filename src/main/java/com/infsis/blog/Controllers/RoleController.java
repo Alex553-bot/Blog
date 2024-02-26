@@ -13,19 +13,30 @@ public class RoleController {
         RoleDTO roleDTO = new RoleDTO(1, "rol");
         return ResponseEntity.ok().body(roleDTO);
     }
-    @PostMapping
-    public ResponseEntity<RoleDTO> saveRole(@RequestBody RoleDTO roleDTO) {
+
+    @PostMapping("/save")
+    public ResponseEntity<RoleDTO> saveRole(
+      @RequestBody RoleDTO roleDTO
+    ) {
         return ResponseEntity.ok().body(roleDTO);
     }
+    
     @GetMapping("/{id}")
-    public ResponseEntity<RoleDTO> getRole(@PathVariable Integer id) {
+    public ResponseEntity<RoleDTO> getRole(
+      @PathVariable Integer id
+    ) {
         RoleDTO roleDTO = new RoleDTO(1, "role");
         return ResponseEntity.ok().body(roleDTO);
     }
+    
     @PutMapping("/{id}")
-    public ResponseEntity<RoleDTO> updateRole(@PathVariable Integer id, @RequestBody RoleDTO roleDTO) {
+    public ResponseEntity<RoleDTO> updateRole(
+      @PathVariable Integer id, 
+      @RequestBody RoleDTO roleDTO
+    ) {
         return ResponseEntity.ok().body(roleDTO);
     }
+    
     @DeleteMapping("/{id}")
     public void deleteRole(@PathVariable Integer id) {
     }

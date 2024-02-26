@@ -1,28 +1,44 @@
 package com.infsis.blog.Models;
 import jakarta.persistence.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
+@Table(name="\"user\"")
+@EntityListeners(AuditingEntityListener.class)
 public class User {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+    private String email;
 
-    public Integer getId() {
-        return id;
-    }
+    @CreatedDate
+    private LocalDateTime createdAt;
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<Article> articles;
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    @ManyToMany
+    @JoinTable(
+            name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private List<Role> roles;
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user")
+    private Blog blog;
+
+    public User() {}
+    public User(Integer id, String name, String email, LocalDateTime createdAt) {
+        this.name = name;
+        this.email = email;
+        this.id = id;
         this.createdAt = createdAt;
-    }
-
-    public User() {
     }
 
     public String getName() {
@@ -31,6 +47,17 @@ public class User {
 
     public String getEmail() {
         return email;
+    }
+    
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+    public Integer getId() {
+        return id;
+    }
+    
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     public void setEmail(String email) {
@@ -43,14 +70,5 @@ public class User {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    private String email;
-    private LocalDateTime createdAt;
-    public User(Integer id, String name, String email, LocalDateTime createdAt) {
-        this.name = name;
-        this.email = email;
-        this.id = id;
-        this.createdAt = createdAt;
     }
 }

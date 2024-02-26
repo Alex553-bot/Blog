@@ -1,25 +1,39 @@
 package com.infsis.blog.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.util.List;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 public class Role {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id; 
-    private String name; 
+    private String name;
+
+    @ManyToMany(mappedBy = "roles")
+    private List<User> user;
+    
     public Role() {}
     public Role(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
-    public Integer getId() {return id;}
-    public String getName() {return name;}
+
+    public Integer getId() {
+        return id;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
     public void setId(Integer id) {
         this.id = id;
     }
+    
     public void setName(String name) {
         this.name = name;
     }

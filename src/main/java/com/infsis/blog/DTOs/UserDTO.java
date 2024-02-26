@@ -17,7 +17,10 @@ public class UserDTO {
     public String getName() {
         return name;
     }
-    public Integer getId() {return id;}
+
+    public Integer getId() {
+        return id;
+    }
 
     public UserDTO() {
     }
@@ -29,6 +32,7 @@ public class UserDTO {
     public void setEmail(String email) {
         this.email = email;
     }
+    
     public void setId(Integer id) {
         this.id = id;
     }

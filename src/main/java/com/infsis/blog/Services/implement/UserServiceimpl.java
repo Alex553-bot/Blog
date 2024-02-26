@@ -5,9 +5,15 @@ import com.infsis.blog.Models.User;
 import com.infsis.blog.Services.UserService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 @Service
 public class UserServiceimpl implements UserService {
+    @Override
+    public List<UserDTO> getUsers() {
+        return null;
+    } 
+
     @Override
     public Optional<UserDTO> getUserByID(Integer UserId) {
         return Optional.empty();
@@ -22,10 +28,11 @@ public class UserServiceimpl implements UserService {
     public UserDTO updateUser(Integer id, UserDTO userDTO) {
         return null;
     }
+    
     @Override
     public void delete(Integer id) {
     }
-    // estos son los mappers:
+    
     private UserDTO UsertoDTO(User user) {
         UserDTO userDTO = new UserDTO(
                 user.getId(),
@@ -34,6 +41,7 @@ public class UserServiceimpl implements UserService {
         );
         return userDTO;
     }
+    
     private User DTOtoUser(UserDTO userDTO) {
         User user = new User();
         user.setName(userDTO.getName());

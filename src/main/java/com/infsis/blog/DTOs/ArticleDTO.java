@@ -11,15 +11,26 @@ public class ArticleDTO {
         this.id = id;
     }
 
-    public Integer getId() {return id;}
-    public String getTitle() {return title;}
-    public String getReference() {return reference;}
+    public Integer getId() {
+        return id;
+    }
+    
+    public String getTitle() {
+        return title;
+    }
+    
+    public String getReference() {
+        return reference;
+    }
+    
     public void setReference(String reference) {
         this.reference = reference;
     }
+    
     public void setTitle(String title) {
         this.title = title;
     }
+    
     public void setId(Integer id) {
         this.id = id;
     }

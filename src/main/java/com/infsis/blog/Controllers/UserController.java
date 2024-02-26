@@ -10,27 +10,42 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     @GetMapping
     public ResponseEntity<UserDTO> getUsers() {
-        UserDTO userDTO = new UserDTO(1, "user", "user@user");
+        UserDTO userDTO = new UserDTO(
+            1, 
+            "user", 
+            "user@user"
+        );
         return ResponseEntity.ok().body(userDTO);
     }
-    @PostMapping()
-    public ResponseEntity<UserDTO> saveUser(@RequestBody UserDTO userDTO) {
+
+    @PostMapping("/save")
+    public ResponseEntity<UserDTO> saveUser(
+      @RequestBody UserDTO userDTO
+    ) {
         return ResponseEntity.ok().body(userDTO);
     }
+    
     @GetMapping("/{id}")
-    public ResponseEntity<UserDTO> getUser(@PathVariable Integer id) {
-        UserDTO userDTO = new UserDTO(1, "user", "user@user");
+    public ResponseEntity<UserDTO> getUser(
+      @PathVariable Integer id
+    ) {
+        UserDTO userDTO = new UserDTO(
+            1, 
+            "user", 
+            "user@user"
+        );
         return ResponseEntity.ok().body(userDTO);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UserDTO> updateUser(@PathVariable Integer id, @RequestBody UserDTO userDTO) {
+    public ResponseEntity<UserDTO> updateUser(
+      @PathVariable Integer id, 
+      @RequestBody UserDTO userDTO
+    ) {
         return ResponseEntity.ok().body(userDTO);
     }
 
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Integer id) {
-        // eliminar
     }
-
 }
