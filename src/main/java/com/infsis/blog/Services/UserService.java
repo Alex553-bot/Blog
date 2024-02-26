@@ -10,6 +10,6 @@ public interface UserService {
     Optional<UserDTO> getUserByID(Integer UserId);
     UserDTO saveUser(UserDTO userDTO);
 
-    UserDTO updateUser(UserDTO userDTO);
-    void delete(UserDTO userDTO);
+    UserDTO updateUser(Integer id, UserDTO userDTO);
+    void delete(Integer id);
 }

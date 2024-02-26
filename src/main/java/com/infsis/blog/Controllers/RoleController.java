@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.*;
 import com.infsis.blog.DTOs.RoleDTO;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/role")
 public class RoleController {
     @GetMapping
     public ResponseEntity<RoleDTO> getRoles() {
-        RoleDTO roleDTO = new RoleDTO("rol");
+        RoleDTO roleDTO = new RoleDTO(1, "rol");
         return ResponseEntity.ok().body(roleDTO);
     }
     @PostMapping
@@ -19,7 +19,7 @@ public class RoleController {
     }
     @GetMapping("/{id}")
     public ResponseEntity<RoleDTO> getRole(@PathVariable Integer id) {
-        RoleDTO roleDTO = new RoleDTO("role");
+        RoleDTO roleDTO = new RoleDTO(1, "role");
         return ResponseEntity.ok().body(roleDTO);
     }
     @PutMapping("/{id}")

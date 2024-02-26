@@ -11,7 +11,7 @@ public class ArticleController {
 
     @GetMapping
     public ResponseEntity<ArticleDTO> getArticles() {
-        ArticleDTO articleDTO = new ArticleDTO("article", "article@article");
+        ArticleDTO articleDTO = new ArticleDTO(1, "article", "article@article");
         return ResponseEntity.ok().body(articleDTO);
     }
     @PostMapping("/save")
@@ -21,7 +21,7 @@ public class ArticleController {
     }
     @GetMapping("/{id}")
     public ResponseEntity<ArticleDTO> getArticle(@PathVariable Integer id) {
-        ArticleDTO articleDTO = new ArticleDTO("article", "article@article");
+        ArticleDTO articleDTO = new ArticleDTO(1, "article", "article@article");
         return ResponseEntity.ok().body(articleDTO);
     }
     @PutMapping("/{id}")

@@ -11,7 +11,7 @@ public class BlogController {
 
     @GetMapping
     public ResponseEntity<BlogDTO> getBlogs() {
-        BlogDTO blogDTO = new BlogDTO("blog");
+        BlogDTO blogDTO = new BlogDTO(1, "blog");
         return ResponseEntity.ok().body(blogDTO);
     }
     @PostMapping
@@ -20,7 +20,7 @@ public class BlogController {
     }
     @GetMapping("/{id}")
     public ResponseEntity<BlogDTO> getBlog(@PathVariable Integer id) {
-        BlogDTO blogDTO = new BlogDTO("blog");
+        BlogDTO blogDTO = new BlogDTO(1, "blog");
         return ResponseEntity.ok().body(blogDTO);
     }
     @PutMapping("/{id}")

@@ -20,15 +20,16 @@ public class Articleimpl implements ArticleService{
         return articleDTO;
     }
     @Override
-    public ArticleDTO updateArticle(ArticleDTO articleDTO) {
+    public ArticleDTO updateArticle(Integer id, ArticleDTO articleDTO) {
         return articleDTO;
     }
     @Override
-    public void deleteArticle(ArticleDTO articleDTO) {}
+    public void deleteArticle(Integer id) {}
 
     // mappers: 
     private ArticleDTO ArticletoDTO(Article article) {
         ArticleDTO articleDTO = new ArticleDTO(
+            article.getId(),
             article.getTitle(), 
             article.getReference()
         );
@@ -38,6 +39,7 @@ public class Articleimpl implements ArticleService{
         Article article = new Article();
         article.setReference(articleDTO.getReference());
         article.setTitle(articleDTO.getTitle());
+        article.setId(articleDTO.getId());
         return article;
     }
 }

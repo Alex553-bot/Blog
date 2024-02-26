@@ -11,6 +11,6 @@ public interface BlogService {
 
     Optional<BlogDTO> getBlogByID(Integer id);
     BlogDTO saveBlog(BlogDTO blogDTO);
-    BlogDTO updateBlog(BlogDTO blogDTO);
-    void deleteBlog(BlogDTO blogDTO);
+    BlogDTO updateBlog(Integer id, BlogDTO blogDTO);
+    void deleteBlog(Integer id);
 }

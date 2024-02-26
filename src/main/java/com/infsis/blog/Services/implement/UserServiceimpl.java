@@ -19,16 +19,16 @@ public class UserServiceimpl implements UserService {
     }
 
     @Override
-    public UserDTO updateUser(UserDTO userDTO) {
-
+    public UserDTO updateUser(Integer id, UserDTO userDTO) {
         return null;
     }
     @Override
-    public void delete(UserDTO userDTO) {
+    public void delete(Integer id) {
     }
     // estos son los mappers:
     private UserDTO UsertoDTO(User user) {
         UserDTO userDTO = new UserDTO(
+                user.getId(),
                 user.getName(),
                 user.getEmail()
         );
@@ -38,6 +38,7 @@ public class UserServiceimpl implements UserService {
         User user = new User();
         user.setName(userDTO.getName());
         user.setEmail(userDTO.getEmail());
+        user.setId(userDTO.getId());
         return user;
     }
 }

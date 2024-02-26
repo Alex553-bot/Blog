@@ -11,6 +11,6 @@ public interface ArticleService {
 
     Optional<ArticleDTO> getArticleByID(Integer id);
     ArticleDTO saveArticle(ArticleDTO articleDTO);
-    ArticleDTO updateArticle(ArticleDTO articleDTO);
-    void deleteArticle(ArticleDTO articleDTO);    
+    ArticleDTO updateArticle(Integer id, ArticleDTO articleDTO);
+    void deleteArticle(Integer id);    
 }

@@ -19,14 +19,15 @@ public class Roleimpl implements RoleService {
         return roleDTO;
     }
     @Override
-    public RoleDTO updateRole(RoleDTO roleDTO) {
+    public RoleDTO updateRole(Integer id, RoleDTO roleDTO) {
         return roleDTO;
     }
     @Override
-    public void deleteRole(RoleDTO roleDTO) {}
+    public void deleteRole(Integer id) {}
     // mappers: 
     private RoleDTO RoletoDTO(Role role) {
         RoleDTO roleDTO = new RoleDTO(
+            role.getId(), 
             role.getName()        
         );
         return roleDTO;
@@ -34,6 +35,7 @@ public class Roleimpl implements RoleService {
     private Role DTOtoRole(RoleDTO roleDTO) {
         Role role = new Role();
         role.setName(roleDTO.getName());
+        role.setId(roleDTO.getId());
         return role;
     }
 }

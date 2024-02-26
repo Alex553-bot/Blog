@@ -18,20 +18,22 @@ public class Blogimpl implements BlogService {
         return blogDTO;
     }
     @Override
-    public BlogDTO updateBlog(BlogDTO blogDTO) {
+    public BlogDTO updateBlog(Integer id, BlogDTO blogDTO) {
         return blogDTO;
     }
     @Override
-    public void deleteBlog(BlogDTO blogDTO) {
+    public void deleteBlog(Integer id) {
     }
     // mappers: 
     private Blog DTOtoBlog(BlogDTO blogDTO) {
         Blog blog = new Blog();
         blog.setName(blogDTO.getName());
+        blog.setId(blogDTO.getId());
         return blog;
     }
     private BlogDTO BlogtoDTO(Blog blog) {
         BlogDTO blogDTO = new BlogDTO(
+            blog.getId(),
             blog.getName()
         );
         return blogDTO;

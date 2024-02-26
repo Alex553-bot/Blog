@@ -1,5 +1,6 @@
 package com.infsis.blog.DTOs;
 public class UserDTO {
+    private Integer id;
     private String name;
     private String email;
 
@@ -7,14 +8,16 @@ public class UserDTO {
         return email;
     }
 
-    public UserDTO(String name, String email) {
+    public UserDTO(Integer id, String name, String email) {
         this.name = name;
         this.email = email;
+        this.id =id;
     }
 
     public String getName() {
         return name;
     }
+    public Integer getId() {return id;}
 
     public UserDTO() {
     }
@@ -25,5 +28,8 @@ public class UserDTO {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    public void setId(Integer id) {
+        this.id = id;
     }
 }
